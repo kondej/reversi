@@ -21,6 +21,8 @@ function updateUI() {
 
     if (gameState.game_over) {
         showGameOver();
+    } else if (gameState.current_player === 2 && !isAITurn) {
+        setTimeout(makeAIMove, 1000);
     }
 }
 
@@ -72,10 +74,6 @@ async function makeMove(row, col) {
          if (response.ok) {
              gameState = await response.json();
              updateUI();
-
-             if (gameState.current_player === 2 && !gameState.game_over) {
-                 setTimeout(makeAIMove, 1000);
-             }
          } else {
              const error = await response.json();
              console.error('Error:', error.error);
