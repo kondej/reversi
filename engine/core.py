@@ -1,3 +1,6 @@
+DIRECTIONS = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
+              (0, 1), (1, -1), (1, 0), (1, 1)]
+
 class Core:
     def __init__(self):
         self.board = []
@@ -18,10 +21,9 @@ class Core:
         if self.board[row][col] != 0:
             return False
 
-        directions = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
-                      (0, 1), (1, -1), (1, 0), (1, 1)]
 
-        for drow, dcol in directions:
+
+        for drow, dcol in DIRECTIONS:
             if self.would_flip_in_direction(row, col, drow, dcol, player):
                 return True
         return False
@@ -44,3 +46,37 @@ class Core:
             r = r + drow
             c = c + dcol
         return False
+
+    # Obróć pionki w danym kierunku
+    #
+    def flip_pieces_in_direction(self, row, col, drow, dcol, player):
+        opponent = 3 - player
+        r = row + drow
+        c = col + dcol
+        pieces_to_flip = []
+
+        while 0 <= r < 8 and 0 <= c < 8:
+            if self.board[r][c] == opponent:
+                pieces_to_flip.append((r, c))
+            elif self.board[r][c] == player:
+                for flip_r, flip_c in pieces_to_flip:
+                    self.board[flip_r][flip_c] = player
+                break
+            else:
+                break
+            r = r + drow
+            c = c + dcol
+
+    # Wykonaj ruch i obróć pionki
+    #
+    def make_move(self, row, col, player):
+        if not self.is_valid_move(row, col, player):
+            return False
+
+        self.board[row][col] = player
+
+        for drow, dcol in DIRECTIONS:
+            if self.would_flip_in_direction(row, col, drow, dcol, player):
+                self.flip_pieces_in_direction(row, col, drow, dcol, player)
+
+        return True
