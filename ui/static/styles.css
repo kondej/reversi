@@ -316,3 +316,40 @@ button:hover, select:hover {
     color: var(--highlight-color);
     margin-bottom: 10px;
 }
+
+@media (max-width: 768px) {
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+
+    .board {
+        width: 320px;
+        height: 320px;
+        border: 8px solid var(--grid-color);
+        border-radius: 8px;
+    }
+
+    .piece {
+        width: 30px;
+        height: 30px;
+    }
+
+    .piece::before {
+        width: 20px;
+        height: 20px;
+    }
+
+    h1 {
+        display: none;
+    }
+
+    button, select {
+        padding: 10px 6px;
+        border-radius: 8px;
+    }
+}
