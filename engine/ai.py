@@ -21,7 +21,7 @@ class AI:
         else:
             return self.get_best_move_hard(game, valid_moves)
 
-    # Średni - preferuj rogi i krawędzie
+    # Średni - preferuj narożniki i krawędzie
     #
     def get_best_move_medium(self, game, valid_moves):
         # Rogi
