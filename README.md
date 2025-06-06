@@ -25,7 +25,7 @@ Obraz gry jest dostępny publicznie na Docker Hub:
 
 ```
 docker pull kondej/reversi-game
-docker run -p 5000:5000 reversi/snake-game
+docker run -p 5000:5000 kondej/reversi-game
 ```
 
 2. Budowanie lokalnego obrazu
