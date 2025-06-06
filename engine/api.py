@@ -5,7 +5,7 @@ from engine.ai import AI
 from engine.core import Core
 
 game = Core()
-ai = AI()
+ai = AI('medium')
 
 app = Flask(__name__, template_folder='../ui/templates', static_folder='../ui/static')
 CORS(app)
@@ -78,3 +78,14 @@ def make_ai_move():
         game.current_player = 2  # Pomiń ruch gracza
 
     return jsonify(game.get_board_state())
+
+@app.route('/api/game/difficulty', methods=['POST'])
+def set_difficulty():
+    data = request.get_json()
+    difficulty = data.get('difficulty', 'medium')
+
+    if difficulty in ['easy', 'medium', 'hard']:
+        ai.difficulty = difficulty
+        return jsonify({'success': True, 'difficulty': difficulty})
+
+    return jsonify({'error': 'Invalid difficulty'}), 400

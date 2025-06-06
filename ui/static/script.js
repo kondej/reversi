@@ -17,6 +17,7 @@ function updateUI() {
     updateBoard();
     updateScores()
     updateCurrentTurn();
+    updateDifficultyControl()
 
     if (gameState.game_over) {
         showGameOver();
@@ -110,6 +111,36 @@ async function makeAIMove() {
     } catch (error) {
         console.error('Error:', error);
         isAITurn = false;
+    }
+}
+
+async function setDifficulty() {
+    const difficulty = document.getElementById('difficulty').value;
+
+    try {
+        const response = await fetch('/api/game/difficulty', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ difficulty })
+        });
+
+        if (response.ok) {
+            console.log(`Poziom trudności: ${difficulty}`);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function updateDifficultyControl() {
+    const player1Score = gameState.scores.player1;
+    const player2Score = gameState.scores.player2;
+    const difficultySelect = document.getElementById('difficulty');
+
+    if (player1Score !== 2 || player2Score !== 2) {
+        difficultySelect.disabled = true;
+    } else {
+        difficultySelect.disabled = false;
     }
 }
 

@@ -16,7 +16,7 @@ def game():
 #
 @pytest.fixture
 def ai():
-    return AI()
+    return AI('medium')
 
 # Sprawdź dostępne ruchy z pozycji startowej
 #

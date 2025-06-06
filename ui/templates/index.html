@@ -12,8 +12,13 @@
             <h1>Reversi</h1>
             <div class="controls">
             <button onclick="resetGame()">Nowa gra</button>
+                <select id="difficulty" onchange="setDifficulty()">
+                <option value="easy">Łatwe AI</option>
+                <option value="medium" selected>Średnie AI</option>
+                <option value="hard">Trudne AI</option>
+            </select>
             <select id="theme" onchange="changeTheme()">
-                <option value="theme-classic">Klasyczny</option>
+                <option value="theme-classic" selected>Klasyczny</option>
                 <option value="theme-forest">Las</option>
                 <option value="theme-cafe">Kawa</option>
                 <option value="theme-obsidian">Kamień</option>
