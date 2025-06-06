@@ -82,7 +82,7 @@ def test_flip_pieces_in_direction(game):
 
 # Sprawdź restart gry
 #
-def test_game_reset(self, game):
+def test_game_reset(game):
     game.make_move(2, 3, 1)
     game.current_player = 2
 
