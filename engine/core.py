@@ -117,3 +117,18 @@ class Core:
                 self.winner = 0
 
         return self.game_over
+
+    # Zwróć obecny stan gry
+    #
+    def get_board_state(self):
+        player1_count = sum(row.count(1) for row in self.board)
+        player2_count = sum(row.count(2) for row in self.board)
+
+        return {
+            'board': self.board,
+            'current_player': self.current_player,
+            'game_over': self.game_over,
+            'winner': self.winner,
+            'scores': {'player1': player1_count, 'player2': player2_count},
+            'valid_moves': self.get_valid_moves(self.current_player)
+        }
