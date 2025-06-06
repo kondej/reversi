@@ -2,7 +2,9 @@
 
 ![CI](https://github.com/kondej/reversi/actions/workflows/ci.yml/badge.svg)
 
-<img src="https://i.postimg.cc/5tvJB5W2/reversi.png" alt="Reversi" width="600">
+<p style="text-align:center">
+  <img src="https://i.postimg.cc/5tvJB5W2/reversi.png" alt="Reversi" style="width:70%; height:auto;">
+</p>>
 
 ## 🔧 Wymagania
 - Zainstalowane biblioteki:
