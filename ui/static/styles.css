@@ -17,10 +17,10 @@
     --bg-color: #3e2723;
     --board-color: #6d4c41;
     --grid-color: #4e342e;
-    --player1-color: #d7ccc8;
-    --player2-color: #a1887f;
-    --player1-color-gradient: #efebe9;
-    --player2-color-gradient: #bcaaa4;
+    --player1-color: #a1887f;
+    --player2-color: #d7ccc8;
+    --player1-color-gradient: #bcaaa4;
+    --player2-color-gradient: #efebe9;
     --highlight-color: #ffb74d;
     --text-color: #fbe9e7;
     --button-color: #8d6e63;
@@ -31,10 +31,10 @@
     --bg-color: #121212;
     --board-color: #1f1f1f;
     --grid-color: #2d2d2d;
-    --player1-color: #acacac;
-    --player2-color: #393939;
-    --player1-color-gradient: #ededed;
-    --player2-color-gradient: #818181;
+    --player1-color: #393939;
+    --player2-color: #acacac;
+    --player1-color-gradient: #818181;
+    --player2-color-gradient: #ededed;
     --highlight-color: #f0c674;
     --text-color: #eeeeee;
     --button-color: #3a3a3a;
@@ -248,11 +248,11 @@ button:hover, select:hover {
     justify-content: center;
 }
 
-.piece.player1 {
+.player1 {
     background: radial-gradient(circle at 30% 30%, var(--player1-color-gradient), var(--player1-color));
 }
 
-.piece.player2 {
+.player2 {
     background: radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color));
 }
 

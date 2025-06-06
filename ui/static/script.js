@@ -202,8 +202,8 @@ function changeTheme() {
 
     const playerPieces = document.querySelectorAll('.player-piece');
     setTimeout(() => {
-        playerPieces[0].style.background = 'radial-gradient(circle at 30% 30%, #4a4a4a, var(--player1-color))';
-        playerPieces[1].style.background = 'radial-gradient(circle at 30% 30%, #ffffff, var(--player2-color))';
+        playerPieces[0].style.background = 'radial-gradient(circle at 30% 30%, var(--player1-color-gradient), var(--player1-color))';
+        playerPieces[1].style.background = 'radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color))';
     }, 100);
 }
 

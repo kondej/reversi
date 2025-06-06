@@ -12,7 +12,7 @@
             <h1>Reversi</h1>
             <div class="controls">
             <button onclick="resetGame()">Nowa gra</button>
-                <select id="difficulty" onchange="setDifficulty()">
+            <select id="difficulty" onchange="setDifficulty()">
                 <option value="easy">Łatwe AI</option>
                 <option value="medium" selected>Średnie AI</option>
                 <option value="hard">Trudne AI</option>
@@ -44,14 +44,14 @@
                     <h3>Punkty</h3>
                     <div class="score-item">
                         <div class="player-indicator">
-                            <div class="player-piece" style="background: radial-gradient(circle at 30% 30%, var(--player1-color-gradient), var(--player1-color));"></div>
+                            <div class="player-piece"></div>
                             <span>Ty (Czarne)</span>
                         </div>
                         <span id="player1-score">2</span>
                     </div>
                     <div class="score-item">
                         <div class="player-indicator">
-                            <div class="player-piece" style="background: radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color));"></div>
+                            <div class="player-piece"></div>
                             <span>AI (Białe)</span>
                         </div>
                         <span id="player2-score">2</span>
