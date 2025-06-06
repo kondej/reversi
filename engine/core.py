@@ -3,7 +3,7 @@ DIRECTIONS = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
 
 class Core:
     def __init__(self):
-        self.board = []
+        self.board = [[0 for _ in range(8)] for _ in range(8)]
         self.current_player = 1  # 1 = czarne, 2 = białe
         self.game_over = False
         self.winner = None
@@ -12,7 +12,7 @@ class Core:
     # Reset gry, planszy i ustawienie pionków na pozycjach startowych
     #
     def reset_game(self):
-        self.board = []
+        self.board = [[0 for _ in range(8)] for _ in range(8)]
         # Ustawienie planszy na start
         self.board[3][3] = 2  # Biały
         self.board[3][4] = 1  # Czarny
