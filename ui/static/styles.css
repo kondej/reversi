@@ -256,16 +256,6 @@ button:hover, select:hover {
     background: radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color));
 }
 
-.piece.animate-flip {
-    animation: flip 0.6s ease-in-out;
-}
-
-@keyframes flip {
-    0% { transform: rotateY(0deg); }
-    50% { transform: rotateY(90deg); }
-    100% { transform: rotateY(0deg); }
-}
-
 .sidebar {
     background: rgba(255,255,255,0.1);
     padding: 20px;

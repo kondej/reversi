@@ -73,8 +73,6 @@ async function makeMove(row, col) {
              gameState = await response.json();
              updateUI();
 
-             animateFlippedPieces();
-
              if (gameState.current_player === 2 && !gameState.game_over) {
                  setTimeout(makeAIMove, 1000);
              }
@@ -102,8 +100,6 @@ async function makeAIMove() {
             gameState = await response.json();
             isAITurn = false;
             updateUI();
-
-            animateFlippedPieces();
         } else {
             console.error('Ruch AI nie powiódł się!');
             isAITurn = false;
@@ -198,18 +194,6 @@ async function resetGame() {
     } catch (error) {
         console.error('Error:', error);
     }
-}
-
-function animateFlippedPieces() {
-    const pieces = document.querySelectorAll('.piece');
-    pieces.forEach(piece => {
-        if (Math.random() < 0.3) {
-            piece.classList.add('animate-flip');
-            setTimeout(() => {
-                piece.classList.remove('animate-flip');
-                }, 600);
-        }
-    });
 }
 
 function changeTheme() {
