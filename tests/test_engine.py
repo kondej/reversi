@@ -98,7 +98,7 @@ def test_game_reset(self, game):
 
 # Sprawdź sytuację kiedy gracz nie ma dozwolonych ruchów
 #
-def test_no_valid_moves_scenario(self, game):
+def test_no_valid_moves_scenario(game):
     # Wypełnij planszę
     for i in range(8):
         for j in range(8):
