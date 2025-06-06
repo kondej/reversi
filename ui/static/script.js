@@ -36,7 +36,22 @@ function updateBoard() {
             cell.className = 'cell';
             cell.dataset.row = row;
             cell.dataset.col = col;
-            cell.onclick = () => makeMove(row, col);
+
+            let moved = false;
+
+            cell.addEventListener('touchstart', (e) => {
+                moved = true;
+                e.preventDefault();
+                makeMove(row, col);
+            }, { passive: false });
+
+            cell.addEventListener('click', () => {
+                if (moved) {
+                    moved = false;
+                    return;
+                }
+                makeMove(row, col);
+            });
 
             const piece = gameState.board[row][col];
             if (piece > 0) {
