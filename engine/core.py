@@ -4,6 +4,23 @@ DIRECTIONS = [(-1, -1), (-1, 0), (-1, 1), (0, -1),
 class Core:
     def __init__(self):
         self.board = []
+        self.current_player = 1  # 1 = czarne, 2 = białe
+        self.game_over = False
+        self.winner = None
+        self.reset_game()
+
+    # Reset gry, planszy i ustawienie pionków na pozycjach startowych
+    #
+    def reset_game(self):
+        self.board = []
+        # Ustawienie planszy na start
+        self.board[3][3] = 2  # Biały
+        self.board[3][4] = 1  # Czarny
+        self.board[4][3] = 1  # Czarny
+        self.board[4][4] = 2  # Biały
+        self.current_player = 1
+        self.game_over = False
+        self.winner = None
     
     # Znajdź wszystkie możliwe ruchy danego gracza
     #
@@ -80,3 +97,23 @@ class Core:
                 self.flip_pieces_in_direction(row, col, drow, dcol, player)
 
         return True
+
+    # Sprawdź czy gra się skończyła
+    #
+    def check_game_over(self):
+        player1_moves = len(self.get_valid_moves(1))
+        player2_moves = len(self.get_valid_moves(2))
+
+        if player1_moves == 0 and player2_moves == 0:
+            self.game_over = True
+            player1_count = sum(row.count(1) for row in self.board)
+            player2_count = sum(row.count(2) for row in self.board)
+
+            if player1_count > player2_count:
+                self.winner = 1
+            elif player2_count > player1_count:
+                self.winner = 2
+            else:
+                self.winner = 0
+
+        return self.game_over
