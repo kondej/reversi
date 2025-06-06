@@ -4,7 +4,7 @@
 
 <p style="text-align:center">
   <img src="https://i.postimg.cc/5tvJB5W2/reversi.png" alt="Reversi" style="width:70%; height:auto;">
-</p>>
+</p>
 
 ## 🔧 Wymagania
 - Zainstalowane biblioteki:
