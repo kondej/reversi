@@ -149,7 +149,33 @@ body {
 
 h1 {
     font-size: 2.5em;
-    margin-bottom: 10px;
+    margin-bottom: 25px;
+}
+
+.controls {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+button, select {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--button-color);
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+button:hover, select:hover {
+    background: var(--button-hover);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.3);
 }
 
 .game-container {
@@ -238,4 +264,65 @@ h1 {
     0% { transform: rotateY(0deg); }
     50% { transform: rotateY(90deg); }
     100% { transform: rotateY(0deg); }
+}
+
+.sidebar {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    min-width: 270px;
+}
+
+.score-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    border-radius: 8px;
+}
+
+.player-indicator {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-piece {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid rgba(0,0,0,0.2);
+}
+
+.current-turn {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    border: 2px solid var(--highlight-color);
+}
+
+.game-over {
+    text-align: center;
+    background: rgba(255,255,255,0.2);
+    padding: 20px;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 2px solid var(--highlight-color);
+}
+
+.winner {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--highlight-color);
+    margin-bottom: 10px;
 }

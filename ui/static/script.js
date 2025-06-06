@@ -15,6 +15,12 @@ function updateUI() {
     if (!gameState) return;
 
     updateBoard();
+    updateScores()
+    updateCurrentTurn();
+
+    if (gameState.game_over) {
+        showGameOver();
+    }
 }
 
 function updateBoard() {
@@ -76,7 +82,7 @@ async function makeMove(row, col) {
              console.error('Error:', error.error);
          }
      } catch (error) {
-                console.error('Error:', error);
+         console.error('Error:', error);
      }
 }
 
@@ -105,6 +111,43 @@ async function makeAIMove() {
         console.error('Error:', error);
         isAITurn = false;
     }
+}
+
+function updateScores() {
+    document.getElementById('player1-score').textContent = gameState.scores.player1;
+    document.getElementById('player2-score').textContent = gameState.scores.player2;
+}
+
+function updateCurrentTurn() {
+    const turnElement = document.getElementById('current-turn');
+
+    if (gameState.game_over) {
+        turnElement.textContent = 'Koniec Gry!';
+        return;
+    }
+
+    if (gameState.current_player === 1) {
+        turnElement.textContent = 'Twój Ruch (Czarne)';
+    } else {
+        turnElement.textContent = 'Ruch AI (Białe)';
+    }
+}
+
+function showGameOver() {
+    const gameOverDiv = document.getElementById('game-over-message');
+    const winnerText = document.getElementById('winner-text');
+
+    let message = '';
+    if (gameState.winner === 0) {
+        message = "Remis! 🤝";
+    } else if (gameState.winner === 1) {
+        message = "Wygrałeś! 🎉";
+    } else {
+        message = "Wygrało AI! 🤖";
+    }
+
+    winnerText.textContent = message;
+    gameOverDiv.style.display = 'block';
 }
 
 async function resetGame() {

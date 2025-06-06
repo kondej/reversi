@@ -4,33 +4,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../static/styles.css">
-    <title>Reversi Game</title>
+    <title>Reversi</title>
 </head>
 <body class="theme-classic">
     <div class="container">
         <div class="header">
-            <h1>Reversi Game</h1>
-            <button onclick="resetGame()">New Game</button>
-            <select id="difficulty" onchange="setDifficulty()">
-                <option value="easy">Easy AI</option>
-                <option value="medium" selected>Medium AI</option>
-                <option value="hard">Hard AI</option>
-            </select>
+            <h1>Reversi</h1>
+            <div class="controls">
+            <button onclick="resetGame()">Nowa gra</button>
             <select id="theme" onchange="changeTheme()">
-                <option value="theme-classic">Classic</option>
-                <option value="theme-forest">Forest</option>
-                <option value="theme-cafe">Cafe</option>
-                <option value="theme-obsidian">Obsidian</option>
-                <option value="theme-sakura">Sakura</option>
-                <option value="theme-fruit">Fruit</option>
-                <option value="theme-paper">Paper</option>
-                <option value="theme-arctic">Arctic</option>
-                <option value="theme-earth">Earth</option>
+                <option value="theme-classic">Klasyczny</option>
+                <option value="theme-forest">Las</option>
+                <option value="theme-cafe">Kawa</option>
+                <option value="theme-obsidian">Kamień</option>
+                <option value="theme-sakura">Wiśnia</option>
+                <option value="theme-fruit">Owoc</option>
+                <option value="theme-paper">Papier</option>
+                <option value="theme-arctic">Arktyka</option>
+                <option value="theme-earth">Ziemia</option>
             </select>
+            </div>
         </div>
         <div class="game-container">
             <div class="board-container">
                 <div class="board" id="board"></div>
+            </div>
+
+            <div class="sidebar">
+                <div class="current-turn" id="current-turn">
+                    Twój ruch (Czarne)
+                </div>
+
+                <div class="score-board">
+                    <h3>Punkty</h3>
+                    <div class="score-item">
+                        <div class="player-indicator">
+                            <div class="player-piece" style="background: radial-gradient(circle at 30% 30%, var(--player1-color-gradient), var(--player1-color));"></div>
+                            <span>Ty (Czarne)</span>
+                        </div>
+                        <span id="player1-score">2</span>
+                    </div>
+                    <div class="score-item">
+                        <div class="player-indicator">
+                            <div class="player-piece" style="background: radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color));"></div>
+                            <span>AI (Białe)</span>
+                        </div>
+                        <span id="player2-score">2</span>
+                    </div>
+                </div>
+
+                <div id="game-over-message" class="game-over" style="display: none;">
+                    <div class="winner" id="winner-text"></div>
+                    <button onclick="resetGame()">Zagraj ponownie</button>
+                </div>
             </div>
         </div>
     </div>
