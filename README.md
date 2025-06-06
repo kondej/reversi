@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/kondej/reversi/actions/workflows/ci.yml/badge.svg)
 
-<p style="text-align:center">
+<p align="center">
   <img src="https://i.postimg.cc/5tvJB5W2/reversi.png" alt="Reversi" style="width:70%; height:auto;">
 </p>
 
