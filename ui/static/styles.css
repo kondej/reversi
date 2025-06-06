@@ -1,17 +1,128 @@
 /* Motywy */
 :root {
-    --bg-color: #003800;
+    --bg-color: #1a471a;
     --board-color: #00873f;
     --grid-color: #000000;
     --player1-color: #040405;
-    --player2-color: #e3e5e6;
+    --player2-color: #ced0d1;
     --player1-color-gradient: #4a4a4a;
     --player2-color-gradient: #ffffff;
-    --highlight-background: rgba(243, 156, 18, 0.5);
     --highlight-color: #f39c12;
     --text-color: #ecf0f1;
     --button-color: #3498db;
     --button-hover: #2980b9;
+}
+
+.theme-cafe {
+    --bg-color: #3e2723;
+    --board-color: #6d4c41;
+    --grid-color: #4e342e;
+    --player1-color: #d7ccc8;
+    --player2-color: #a1887f;
+    --player1-color-gradient: #efebe9;
+    --player2-color-gradient: #bcaaa4;
+    --highlight-color: #ffb74d;
+    --text-color: #fbe9e7;
+    --button-color: #8d6e63;
+    --button-hover: #795548;
+}
+
+.theme-obsidian {
+    --bg-color: #121212;
+    --board-color: #1f1f1f;
+    --grid-color: #2d2d2d;
+    --player1-color: #acacac;
+    --player2-color: #393939;
+    --player1-color-gradient: #ededed;
+    --player2-color-gradient: #818181;
+    --highlight-color: #f0c674;
+    --text-color: #eeeeee;
+    --button-color: #3a3a3a;
+    --button-hover: #575757;
+}
+
+.theme-sakura {
+    --bg-color: #fef6f6;
+    --board-color: #ffeaea;
+    --grid-color: #d5b8b8;
+    --player1-color: #f48fb1;
+    --player2-color: #81d4fa;
+    --player1-color-gradient: #f8bbd0;
+    --player2-color-gradient: #b3e5fc;
+    --highlight-color: #e3aea2;
+    --text-color: #4a4a4a;
+    --button-color: #ce93d8;
+    --button-hover: #ba68c8;
+}
+
+.theme-fruit {
+    --bg-color: #fff4e6;
+    --board-color: #ffe0b2;
+    --grid-color: #ffcc80;
+    --player1-color: #ff7043;
+    --player2-color: #ffe082;
+    --player1-color-gradient: #ff8a65;
+    --player2-color-gradient: #fff59d;
+    --highlight-color: #ffb74d;
+    --text-color: #4e342e;
+    --button-color: #f57c00;
+    --button-hover: #ef6c00;
+}
+
+.theme-paper {
+    --bg-color: #f4f4f4;
+    --board-color: #dddddd;
+    --grid-color: #bfbfbf;
+    --player1-color: #2e2e2e;
+    --player2-color: #8c8c8c;
+    --player1-color-gradient: #444444;
+    --player2-color-gradient: #aaaaaa;
+    --highlight-color: #ff9900;
+    --text-color: #1a1a1a;
+    --button-color: #999999;
+    --button-hover: #666666;
+}
+
+.theme-arctic {
+    --bg-color: #e8f0f8;
+    --board-color: #cdd7df;
+    --grid-color: #b0bec5;
+    --player1-color: #263238;
+    --player2-color: #90a4ae;
+    --player1-color-gradient: #455a64;
+    --player2-color-gradient: #cfd8dc;
+    --highlight-color: #42a5f5;
+    --text-color: #263238;
+    --button-color: #64b5f6;
+    --button-hover: #2196f3;
+}
+
+.theme-earth {
+    --bg-color: #f4f1ee;
+    --board-color: #c2b280;
+    --grid-color: #a68a64;
+    --player1-color: #6f4e37;
+    --player2-color: #dcd0c0;
+    --player1-color-gradient: #8b5e3c;
+    --player2-color-gradient: #e6e2d3;
+    --highlight-color: #a1866f;
+    --text-color: #3c2f2f;
+    --button-color: #c97c5d;
+    --button-hover: #a65b3e;
+}
+
+.theme-forest {
+    --bg-color: #1b2e20;
+    --board-color: #2e5339;
+    --grid-color: #3e6b4e;
+    --player1-color: #7dba70;
+    --player2-color: #d6eac4;
+    --player1-color-gradient: #a8d5a2;
+    --player2-color-gradient: #f0f5e4;
+    --highlight-color: #ffe066;
+    --text-color: #edf6ec;
+    --button-color: #558c60;
+    --button-hover: #3c6e48;
 }
 
 /* Strona */
@@ -27,6 +138,8 @@ body {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
 
 .header {
@@ -75,12 +188,11 @@ h1 {
 }
 
 .cell.valid-move {
-    background: var(--highlight-background);
     cursor: pointer;
 }
 
 .cell.valid-move:hover {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.2);
 }
 
 .cell.valid-move::after {
@@ -102,7 +214,6 @@ h1 {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid rgba(0,0,0,0.2);
     transition: all 0.3s ease;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     position: relative;

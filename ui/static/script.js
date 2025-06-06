@@ -107,6 +107,25 @@ async function makeAIMove() {
     }
 }
 
+async function resetGame() {
+    try {
+        const response = await fetch('/api/game/reset', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        });
+
+        if (response.ok) {
+            gameState = await response.json();
+            isAITurn = false;
+
+            updateUI();
+            document.getElementById('game-over-message').style.display = 'none';
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
 function animateFlippedPieces() {
     const pieces = document.querySelectorAll('.piece');
     pieces.forEach(piece => {
@@ -117,6 +136,17 @@ function animateFlippedPieces() {
                 }, 600);
         }
     });
+}
+
+function changeTheme() {
+    const theme = document.getElementById('theme').value;
+    document.body.className = theme;
+
+    const playerPieces = document.querySelectorAll('.player-piece');
+    setTimeout(() => {
+        playerPieces[0].style.background = 'radial-gradient(circle at 30% 30%, #4a4a4a, var(--player1-color))';
+        playerPieces[1].style.background = 'radial-gradient(circle at 30% 30%, #ffffff, var(--player2-color))';
+    }, 100);
 }
 
 initGame();
