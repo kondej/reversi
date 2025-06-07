@@ -2,7 +2,7 @@
 :root {
     --bg-color: #1a471a;
     --board-color: #00873f;
-    --grid-color: #000000;
+    --grid-color: #040405;
     --player1-color: #040405;
     --player2-color: #ced0d1;
     --player1-color-gradient: #4a4a4a;
@@ -17,9 +17,9 @@
     --bg-color: #3e2723;
     --board-color: #6d4c41;
     --grid-color: #4e342e;
-    --player1-color: #a1887f;
+    --player1-color: #61524c;
     --player2-color: #d7ccc8;
-    --player1-color-gradient: #bcaaa4;
+    --player1-color-gradient: #9a8b86;
     --player2-color-gradient: #efebe9;
     --highlight-color: #ffb74d;
     --text-color: #fbe9e7;
@@ -340,11 +340,9 @@ button:hover, select:hover {
         justify-content: center;
     }
 
-
-
     .board {
-        width: 320px;
-        height: 320px;
+        width: 400px;
+        height: 400px;
         border: 8px solid var(--grid-color);
         border-radius: 8px;
     }
