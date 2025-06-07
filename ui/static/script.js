@@ -1,4 +1,5 @@
 let gameState = null;
+let previousBoard = null;
 let isAITurn = false;
 
 async function initGame() {
@@ -30,6 +31,8 @@ function updateBoard() {
     const board = document.getElementById('board');
     board.innerHTML = '';
 
+    const newBoard = gameState.board;
+
     for (let row = 0; row < 8; row++) {
         for (let col = 0; col < 8; col++) {
             const cell = document.createElement('div');
@@ -53,10 +56,17 @@ function updateBoard() {
                 makeMove(row, col);
             });
 
-            const piece = gameState.board[row][col];
-            if (piece > 0) {
+            const newPiece = newBoard[row][col];
+            const oldPiece = previousBoard ? previousBoard[row][col] : null;
+
+            if (newPiece > 0) {
                 const pieceDiv = document.createElement('div');
-                pieceDiv.className = `piece player${piece}`;
+                pieceDiv.className = `piece player${newPiece}`;
+
+                if (!previousBoard || newPiece !== oldPiece) {
+                    pieceDiv.classList.add('piece-animated');
+                }
+
                 cell.appendChild(pieceDiv);
             }
 
@@ -72,6 +82,7 @@ function updateBoard() {
             board.appendChild(cell);
         }
     }
+    previousBoard = JSON.parse(JSON.stringify(newBoard));
 }
 
 async function makeMove(row, col) {

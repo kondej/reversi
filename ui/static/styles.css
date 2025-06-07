@@ -256,6 +256,21 @@ button:hover, select:hover {
     background: radial-gradient(circle at 30% 30%, var(--player2-color-gradient), var(--player2-color));
 }
 
+.piece-animated {
+    animation: pop-in 0.3s ease;
+}
+
+@keyframes pop-in {
+    0% {
+        transform: scale(0.2);
+        opacity: 0.2;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
 .sidebar {
     background: rgba(255,255,255,0.1);
     padding: 20px;
